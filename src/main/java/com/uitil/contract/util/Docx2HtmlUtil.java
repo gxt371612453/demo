@@ -59,7 +59,7 @@ public class Docx2HtmlUtil {
             if (paragraph.getText().contains("%%%")) {
 
                 //特殊处理签章
-                String sealStr = paragraph.getText();
+                String sealStr = paragraph.getText().trim();
                 if (paragraph.getText().contains("甲方")) {
                     sealStr = sealStr.replace("甲方", "甲方（签章）");
                 }
@@ -127,6 +127,8 @@ public class Docx2HtmlUtil {
                 "\tmargin-top: 12px;\n" +
                 "\tmargin-bottom: 12px;\n" +
                 "}\n" +
+                "table tr td { border:1px solid; }\n" +
+                "table {width: 90%; min-height: 25px; line-height: 25px; text-align: center; border-collapse: collapse;}\n" +
                 " \n" +
                 "html {\n" +
                 "\tcolor: #000;\n" +
@@ -145,7 +147,7 @@ public class Docx2HtmlUtil {
      * @return
      */
     public static String replaceSpecialChar(String str) {
-        return str.replace("$$$", "")
+        return str.trim().replace("$$$", "")
                 .replace("###", "")
                 .replace("@@@", "");
     }
@@ -163,6 +165,8 @@ public class Docx2HtmlUtil {
                 .replace("<strong>$</strong>", "$")
                 .replace("<strong>${</strong>", "${")
                 .replace("<strong>}</strong>","}")
+                .replace("¥","&yen;")
+                .replace("￥", "&yen;")
                 ;
     }
 
@@ -208,9 +212,8 @@ public class Docx2HtmlUtil {
         return content.replace("${", "&nbsp;${").replace("}","}&nbsp;");
     }
 
-    public static void main(String[] args) {
-        String aa = "hello<strong>zhangsan<strong>abcd<strong></strong>test haha ";
-        System.out.println(aa);
-        System.out.println(replaceBlankStrongLable(aa));
+    public static void main(String[] args) throws IOException {
+        String file = "C:\\Users\\guoxutao\\Desktop\\服务费协议.docx";
+        dealDocxFile(file);
     }
 }

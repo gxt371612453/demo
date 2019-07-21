@@ -1,0 +1,421 @@
+<!DOCTYPE html PUBLIC '-//W3C//Dtd XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/Dtd/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <title>合同占位符信息</title>
+    <style type='text/css'>
+        body {
+            font-family: SimSun;
+            font-size: 18px;
+        }
+
+        p {
+            line-height: 30px;
+            padding-top: -16px;
+            margin-top: 0px;
+        }
+        table tr th {
+            border:2px;
+        }
+        table {
+            widtd: 40%;
+            min-height: 25px;
+            line-height: 25px;
+            text-align: left;
+            border-collapse: collapse;
+        }
+
+        html {
+            color: #000;
+        }
+        .label_tr{
+            color:red;
+        }
+    </style>
+
+</head>
+<body>
+<div>
+    <p class="label_tr">
+        1.一般法务提供的相关合同文件为doc或docx文件（其中不包含占位符信息），我们需要将拿到的文件进行调整，即将下表中占位符信息填充到合同文本相关位置（.docx文件）。
+    </p>
+    <p class="label_tr">
+        2.将处理过的文件通过手动执行demo实例进行初步转换 -> html文件 (此时的html文件，内容格式或许不符合要求，需要手工进行微调)
+    </p>
+    <p>
+        具体操作：
+    </p>
+    <p>  * 处理合同的docx文件的辅助工具，使用前提：手动修改docx文件</p>
+    <p>  * 仅仅用于处理docx文件，如果提供了doc文件，请手工修改为docx类型</p>
+    <p>  * 其中@@@ 标记该段落要居左（顶行）</p>
+    <p>  * 其中### 标记段落为标题段落，需要居中</p>
+    <p>  * 其中$$$ 标记段落为居右段落</p>
+    <p>  * 正常缩进不需要特殊标记</p>
+    <p>   * (视具体合同而定，可以不处理，待生成html后再手动调整)特殊处理签章内容的 %%% ，将标记放置在签章方中间，用于替换空格标签
+        eg:   甲方   %%%   乙方 -> 甲方（签章） &nbsp;&nbsp;乙方（签章）</p>
+    </p>
+</div>
+<div>
+    <p>&nbsp;&nbsp;</p>
+    <p>&nbsp;&nbsp;
+        <a href="upload">文件转换demo操作入口:</a>
+    </p>
+    <p>&nbsp;&nbsp;<a href="demoFile">demo</a></p>
+    <p>&nbsp;&nbsp;</p>
+</div>
+<div>
+    <label>--常用的模板占位符信息--</label>
+    <div>
+        <table border="1">
+            <tr class="label_tr">
+                <td colspan="2">客户相关</td>
+            </tr>
+            <tr>
+                <td>客户姓名</td>
+                <td>${clientName!''}</td>
+            </tr>
+            <tr>
+                <td>客户身份证</td>
+                <td>${clientIdNo!''}</td>
+            </tr>
+            <tr>
+                <td>客户手机号</td>
+                <td>${clientPhone!'--'}</td>
+            </tr>
+            <tr>
+                <td>客户确认地址</td>
+                <td>${clientAddress!''}</td>
+            </tr>
+
+            <!-- 商户相关-->
+            <tr class="label_tr">
+                <td colspan="2">商户相关</td>
+            </tr>
+            <tr>
+                <td>商户名称</td>
+                <td>${partnerName!''}</td>
+            </tr>
+            <tr>
+                <td>商户法人名称</td>
+                <td>${partnerLegalName!''}</td>
+            </tr>
+            <tr>
+                <td>商户法人证件号（身份证）</td>
+                <td>${partnerLegalIdNo!''}</td>
+            </tr>
+            <tr>
+                <td>商户法人手机号</td>
+                <td>${partnerLegalPhone!''}</td>
+            </tr>
+            <tr>
+                <td>商户实际地址</td>
+                <td>${partnerAddress!''}</td>
+            </tr>
+            <tr>
+                <td>商户联系人</td>
+                <td>${partnerLinkerName!''}</td>
+            </tr>
+            <tr>
+                <td>商户联系人电话</td>
+                <td>${partnerLinkerCell!''}</td>
+            </tr>
+
+            <!-- 借款相关-->
+            <tr class="label_tr">
+                <td colspan="2">借款相关</td>
+            </tr>
+            <tr>
+                <td>合同编号/编号/协议编号</td>
+                <td>${contractNo!''}</td>
+            </tr>
+            <tr>
+                <td>借款金额</td>
+                <td>${loanAmt!''}</td>
+            </tr>
+            <tr>
+                <td>（人民币大写）借款金额</td>
+                <td>${loanAmtChinese!''}</td>
+            </tr>
+            <tr>
+                <td>借款利率</td>
+                <td>${interestRate!''}</td>
+            </tr>
+            <tr>
+                <td>借款月利率</td>
+                <td>${perMontdRate!''}</td>
+            </tr>
+            <tr>
+                <td>借款综合年化利率</td>
+                <td>${totalAnnualRate!''}</td>
+            </tr>
+            <tr>
+                <td>借款期数</td>
+                <td>${loanTerm!''}</td>
+            </tr>
+            <tr>
+                <td>借款用途/原因</td>
+                <td>${loanPurpose!''}</td>
+            </tr>
+            <tr>
+                <td>借款开始日期</td>
+                <td>${loanStartdate!''}</td>
+            </tr>
+            <tr>
+                <td>借款结束日期</td>
+                <td>${loanEndDate!''}</td>
+            </tr>
+
+            <!-- 还款相关-->
+            <tr class="label_tr">
+                <td colspan="2">还款相关</td>
+            </tr>
+            <tr>
+                <td>还款方式</td>
+                <td>${loanRepayType!''}</td>
+            </tr>
+            <tr>
+                <td>每月（期）还款金额（本金+利息）</td>
+                <td>${totalInstalmentAmt!''}</td>
+            </tr>
+            <tr>
+                <td>每月（期）还款金额（本金+利息+服务费）</td>
+                <td>${totalInstalmentAmtWitdServiceFee!''}</td>
+            </tr>
+            <tr>
+                <td>还款期数</td>
+                <td>${instalmentPeriod!''}</td>
+            </tr>
+            <tr>
+                <td>逾期违约金比例</td>
+                <td>${overdueRate!''}</td>
+            </tr>
+            <tr>
+                <td>还款计划：首笔借款还款日期</td>
+                <td>${firstRepayDate!''}</td>
+            </tr>
+            <tr>
+                <td>还款计划列表</td>
+                <td>${repayPlayInfo!''}</td>
+            </tr>
+
+            <!-- 服务费相关-->
+            <tr class="label_tr">
+                <td colspan="2">服务费相关</td>
+            </tr>
+            <tr>
+                <td>咨询服务费费率</td>
+                <td>${advisoryServiceFeeRate!''}</td>
+            </tr>
+            <tr>
+                <td>咨询服务费</td>
+                <td>${advisoryServiceFee!''}</td>
+            </tr>
+            <tr>
+                <td>（人民币大写）咨询服务费</td>
+                <td>${advisoryServiceFeeChinese!''}</td>
+            </tr>
+            <tr>
+                <td>借款管理服务费费率</td>
+                <td>${loanManageServiceFeeRate!''}</td>
+            </tr>
+            <tr>
+                <td>借款管理服务费</td>
+                <td>${loanManageServiceFee!''}</td>
+            </tr>
+            <tr>
+                <td>(人民币大写)借款管理服务费</td>
+                <td>${loanManageServiceFeeChinese!''}</td>
+            </tr>
+            <tr>
+                <td>信息技术服务费费率</td>
+                <td>${informationServiceFeeRate!''}</td>
+            </tr>
+            <tr>
+                <td>信息技术服务费</td>
+                <td>${informationServiceFee!''}</td>
+            </tr>
+            <tr>
+                <td>（人民币大写）信息技术服务费</td>
+                <td>${informationServiceFeeChinese!''}</td>
+            </tr>
+            <tr>
+                <td>撮合服务费费率</td>
+                <td>${matchingServiceFeeRate!''}</td>
+            </tr>
+            <tr>
+                <td>撮合服务费</td>
+                <td>${matchingServiceFee!''}</td>
+            </tr>
+            <tr>
+                <td>（人民币大写）撮合服务费</td>
+                <td>${matchingServiceFeeChinese!''}</td>
+            </tr>
+            <tr>
+                <td>合作方服务费率</td>
+                <td>${partnerServiceFeeRate!''}</td>
+            </tr>
+            <tr>
+                <td>合作方服务费</td>
+                <td>${partnerServiceFee!''}</td>
+            </tr>
+            <tr>
+                <td>（人民币大写）合作方服务费</td>
+                <td>${partnerServiceFeeChinese!''}</td>
+            </tr>
+            <tr>
+                <td>合作方服务费占比</td>
+                <td>${partnerServiceFeeScale!''}</td>
+            </tr>
+            <tr>
+                <td>剩余服务费占比</td>
+                <td>${remainFeeScale!''}</td>
+            </tr>
+            <tr>
+                <td>服务费总额</td>
+                <td>${totalServiceFee!''}</td>
+            </tr>
+            <tr>
+                <td>（人民币大写）服务费总额</td>
+                <td>${totalServiceChinese!''}</td>
+            </tr>
+            <tr>
+                <td>服务费费率（比例）</td>
+                <td>${serviceRate!''}</td>
+            </tr>
+            <tr>
+                <td>服务费月费率（比例）</td>
+                <td>${monServiceRate!''}</td>
+            </tr>
+            <tr>
+                <td>服务费日费率（比例）</td>
+                <td>${dayServiceRate!''}</td>
+            </tr>
+            <tr>
+                <td>服务费费率（年化）</td>
+                <td>${serviceAnnualRate!''}</td>
+            </tr>
+            <tr>
+                <td>服务费月费率（年化）</td>
+                <td>${monServiceAnnualRate!''}</td>
+            </tr>
+            <tr>
+                <td>服务费日费率（年化）</td>
+                <td>${dayServiceAnnualRate!''}</td>
+            </tr>
+            <tr>
+                <td>(服务费均摊)每月支付服务费</td>
+                <td>${feeInstalmentAmt!''}</td>
+            </tr>
+            <tr>
+                <td>(服务费阶梯式收费)：首笔服务费支付金额</td>
+                <td>${feeFirstAmt!''}</td>
+            </tr>
+            <tr>
+                <td>(服务费阶梯式收费)：指定的前N期</td>
+                <td>${feeFirstCollectPeriod!''}</td>
+            </tr>
+            <tr>
+                <td>(服务费阶梯式收费)：指定前N期，每期支付金额</td>
+                <td>${feeFirstInstalmentAmt!''}</td>
+            </tr>
+            <tr>
+                <td>(服务费阶梯式收费)：剩余服务费，每期还款金额</td>
+                <td>${feeRemainInstalmentAmt!''}</td>
+            </tr>
+            <tr>
+                <td>(服务费阶梯式收费)：剩余服务费，还款期数</td>
+                <td>${feeRemainCollectFeePeriod!''}</td>
+            </tr>
+            <!-- 银行卡相关-->
+            <tr class="label_tr">
+                <td colspan="2">银行卡相关</td>
+            </tr>
+            <tr>
+                <td>借款卡户名</td>
+                <td>${loanAccountName!''}</td>
+            </tr>
+            <tr>
+                <td>借款卡账户</td>
+                <td>${loanAccount!''}</td>
+            </tr>
+            <tr>
+                <td>借款卡开户行</td>
+                <td>${loanBankOfDeposit!''}</td>
+            </tr>
+            <tr>
+                <td>还款卡户名</td>
+                <td>${repayAccountName!''}</td>
+            </tr>
+            <tr>
+                <td>还款卡账户</td>
+                <td>${repayAccount!''}</td>
+            </tr>
+            <tr>
+                <td>还款卡开户行</td>
+                <td>${repayBankOfDeposit!''}</td>
+            </tr>
+       <tr class="label_tr">
+           <td colspan="2">脱敏相关</td>
+       </tr>
+            <tr>
+                <td>脱敏客户名称</td>
+                <td>${unsensitiveClientName!''}</td>
+            </tr>
+            <tr>
+                <td>脱敏客户身份证</td>
+                <td>${unsensitiveClientIdNo!''}</td>
+            </tr>
+            <tr>
+                <td>脱敏客户手机号</td>
+                <td>${unsensitiveClientPhone!''}</td>
+            </tr>
+            <tr>
+                <td>脱敏借款卡户名</td>
+                <td>${unsensitiveLoanAccountName!''}</td>
+            </tr>
+            <tr>
+                <td>脱敏借款卡号</td>
+                <td>${unsensitiveLoanAccount!''}</td>
+            </tr>
+            <tr>
+                <td>脱敏还款卡户名</td>
+                <td>${unsensitiveRepayAccountName!''}</td>
+            </tr>
+            <tr>
+                <td>脱敏还款卡卡号</td>
+                <td>${unsensitiveRepayAccount!''}</td>
+            </tr>
+            <tr class="label_tr">
+                <td colspan="2">操作日期</td>
+            </tr>
+            <tr>
+                <td>操作日期</td>
+                <td>${clientOptionDate!''}</td>
+            </tr>
+            <tr class="label_tr">
+                <td colspan="2">有钱审核相关</td>
+            </tr>
+            <tr>
+                <td>应用名</td>
+                <td>${appName!''}</td>
+            </tr>
+            <tr>
+                <td>运营主体</td>
+                <td>${operationSubject!''}</td>
+            </tr>
+            <tr>
+                <td>运营主体法人</td>
+                <td>${legalName!''}</td>
+            </tr>
+            <tr>
+                <td>运营主体联系地址</td>
+                <td>${address!''}</td>
+            </tr>
+        </table>
+    </div>
+
+
+
+</div>
+</body>
+</html>

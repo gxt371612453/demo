@@ -1,0 +1,36 @@
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <style type='text/css'>
+        body {
+            font-family: SimSun;
+            font-size: 18px;
+        }
+
+        p {
+            line-height: 30px;
+            padding-top: -16px;
+            margin-top: 0px;
+        }
+
+        html {
+            color: #000;
+        }
+    </style>
+
+</head>
+
+<body>
+<div>
+    <p style="color: red">
+        此处的文件路径：例如：C:/User/Desktop/aaa.docx   或 C:/User/Desktop/ 支持单个文件或文件目录转换
+    </p>
+</div>
+<div>
+    <form action="docx2html.do" method="get">
+        文件路径：<input name="destFile" id="destFile">
+        <input type="submit" value="Submit" name="转换"/>
+    </form>
+</div>
+</body>
+</html>
