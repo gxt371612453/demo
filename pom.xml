@@ -16,7 +16,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<org.apache.poi.version>3.14</org.apache.poi.version>
+		<org.apache.poi.version>4.1.2</org.apache.poi.version>
 		<itextpdf.html2pdf.version>2.0.1</itextpdf.html2pdf.version>
 		<itextpdf.version>5.4.5</itextpdf.version>
 		<itextpdf.itext-asian.version>5.2.0</itextpdf.itext-asian.version>
