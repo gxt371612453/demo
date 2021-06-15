@@ -21,7 +21,7 @@
 		<itextpdf.version>5.4.5</itextpdf.version>
 		<itextpdf.itext-asian.version>5.2.0</itextpdf.itext-asian.version>
 		<freemarker.version>2.3.23</freemarker.version>
-		<pdfbox.pdfbox.version>2.0.8</pdfbox.pdfbox.version>
+		<pdfbox.pdfbox.version>2.0.24</pdfbox.pdfbox.version>
 	</properties>
 
 	<dependencies>
